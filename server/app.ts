@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import locationRoutes from '../routes/location_route';
+import attendanceRoutes from '../routes/attendance_route';
 import 'dotenv/config';
 
 const app = express();
@@ -8,6 +9,7 @@ const app = express();
 app.use(express.json());
 
 app.use('/api/location', locationRoutes);
+app.use('/api/attendance', attendanceRoutes);
 
 mongoose
     .connect(`${process.env.MONGODB_CONNECTION_STRING}`)
