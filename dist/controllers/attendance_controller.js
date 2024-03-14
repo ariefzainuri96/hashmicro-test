@@ -29,6 +29,7 @@ function distanceInMeter(lat, lng, latTarget, lngTarget) {
     return d;
 }
 const addAttendance = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a;
     try {
         const locations = yield location_model_1.default.find();
         const { latitude, longitude, name } = req.body;
@@ -55,6 +56,7 @@ const addAttendance = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         if (anyLocationThatMeetWithUserLocation.length > 0) {
             const attendance = yield attendance_models_1.default.create({
                 name: name,
+                distance: (_a = nearestLocation === null || nearestLocation === void 0 ? void 0 : nearestLocation.distance) !== null && _a !== void 0 ? _a : 0,
                 locationId: anyLocationThatMeetWithUserLocation[0].id,
                 locationName: anyLocationThatMeetWithUserLocation[0].name,
                 latitude: latitude,

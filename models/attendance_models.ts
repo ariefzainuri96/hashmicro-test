@@ -6,6 +6,10 @@ const AttendanceSchema = new mongoose.Schema(
             type: String,
             required: [true, 'Please enter employee name!'],
         },
+        distance: {
+            type: Number,
+            required: true,
+        },
         locationId: {
             type: String,
             required: true,

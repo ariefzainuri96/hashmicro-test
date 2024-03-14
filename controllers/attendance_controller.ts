@@ -64,6 +64,7 @@ export const addAttendance = async (req: Request, res: Response) => {
         if (anyLocationThatMeetWithUserLocation.length > 0) {
             const attendance = await Attendance.create({
                 name: name,
+                distance: nearestLocation?.distance ?? 0,
                 locationId: anyLocationThatMeetWithUserLocation[0].id,
                 locationName: anyLocationThatMeetWithUserLocation[0].name,
                 latitude: latitude,
